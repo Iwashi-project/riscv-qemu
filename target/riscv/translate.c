@@ -1727,6 +1727,9 @@ static void decode_RV32_64G(CPURISCVState *env, DisasContext *ctx)
     imm = GET_IMM(ctx->opcode);
 
     switch (op) {
+    case OPC_RISC_OUT:
+        printf("hugaaaaaaaaaaaaaaa!!!!\n");
+        break;
     case OPC_RISC_LUI:
         if (rd == 0) {
             break; /* NOP */
