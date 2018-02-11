@@ -32,7 +32,7 @@ enum {
     OPC_RISC_ARITH      = (0x33),
     OPC_RISC_FENCE      = (0x0F),
     OPC_RISC_SYSTEM     = (0x73),
-    OPC_RISC_IO         = (0x01),
+    OPC_RISC_OUT   = (0x2B),
 
     /* rv64i, rv64m */
     OPC_RISC_ARITH_IMM_W = (0x1B),
@@ -51,11 +51,6 @@ enum {
     OPC_RISC_FNMADD = (0x4F),
 
     OPC_RISC_FP_ARITH = (0x53),
-};
-
-enum {
-    OPC_RISC_IN    = OPC_RISC_IO | (0x0 << 12) | (0x00 << 25),
-    OPC_RISC_OUT   = OPC_RISC_IO | (0x1 << 12) | (0x00 << 25),
 };
 
 #define MASK_OP_ARITH(op)   (MASK_OP_MAJOR(op) | (op & ((0x7 << 12) | \
