@@ -1731,7 +1731,7 @@ static void decode_RV32_64G(CPURISCVState *env, DisasContext *ctx)
     switch (op) {
     case OPC_RISC_OUT:
         source1 = tcg_temp_new();
-        tcg_gen_movi_tl(source1, imm);
+        gen_get_gpr(source1, rs1);
         gen_helper_outb(cpu_env, source1);
         break;
     case OPC_RISC_LUI:
