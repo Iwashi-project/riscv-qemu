@@ -76,3 +76,5 @@ DEF_HELPER_1(wfi, void, env)
 DEF_HELPER_1(tlb_flush, void, env)
 DEF_HELPER_1(fence_i, void, env)
 #endif
+
+DEF_HELPER_2(outb, void, env, tl)

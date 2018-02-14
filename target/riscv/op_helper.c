@@ -684,3 +684,9 @@ void helper_tlb_flush(CPURISCVState *env)
 }
 
 #endif /* !CONFIG_USER_ONLY */
+
+void helper_outb(CPURISCVState *env, target_ulong data)
+{
+    fprintf(stderr, "%c", data);
+}
+

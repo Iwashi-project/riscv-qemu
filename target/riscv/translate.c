@@ -1714,6 +1714,7 @@ static void decode_RV32_64G(CPURISCVState *env, DisasContext *ctx)
     int rd;
     uint32_t op;
     target_long imm;
+    TCGv source1;
 
     /* We do not do misaligned address check here: the address should never be
      * misaligned at this point. Instructions that set PC must do the check,
@@ -1726,9 +1727,12 @@ static void decode_RV32_64G(CPURISCVState *env, DisasContext *ctx)
     rd = GET_RD(ctx->opcode);
     imm = GET_IMM(ctx->opcode);
 
+
     switch (op) {
-    case OPC_RISC_OUT: ;
-        printf("%c\n", imm);
+    case OPC_RISC_OUT:
+        source1 = tcg_temp_new();
+        tcg_gen_movi_tl(source1, imm);
+        gen_helper_outb(cpu_env, source1);
         break;
     case OPC_RISC_LUI:
         if (rd == 0) {
