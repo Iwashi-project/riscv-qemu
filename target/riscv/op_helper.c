@@ -687,6 +687,6 @@ void helper_tlb_flush(CPURISCVState *env)
 
 void helper_outb(CPURISCVState *env, target_ulong data)
 {
-    fprintf(stderr, "%c", data);
+    fprintf(stderr, "%c", (char) data);
 }
 
